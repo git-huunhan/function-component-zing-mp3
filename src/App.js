@@ -1,24 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
 
 function App() {
+  const nav = [
+      {title: '#zingchart'},
+      {title: 'mới phát hành'},
+      {title: 'top 100'},
+      {title: 'chủ đề'},
+      {title: 'mv'},
+      {title: 'album'},
+      {title: 'nghệ sĩ'},
+      {title: 'nhạc cá nhân'},
+    ]
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header>
+        Nhập tên bài hát, ca sĩ, hoặc mv...
+      </Header>
+      <div className="nav-bar">
+        <ul>
+          <div className="home">
+            <li>trang chủ</li>
+          </div>
+          {
+            nav.map((item, index) =>
+            <Navigation key={index}>
+              {item.title}
+            </Navigation>)
+          }
+          <div className="vip">
+            <button>vip</button>
+          </div>
+        </ul>
+      </div>
     </div>
   );
 }
